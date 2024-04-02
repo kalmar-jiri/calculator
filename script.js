@@ -1,6 +1,10 @@
 'use strict';
 
 const display = document.querySelector('#display');
+const numberBtns = document.querySelectorAll('.btn-number');
+const operatorBtns = document.querySelectorAll('.btn-operator');
+const clearBtn = document.querySelector('.btn-clear');
+const equalsBtn = document.querySelector('.btn-equals');
 
 const appendToDisplay = (str) => {
   display.value += str;
@@ -21,3 +25,19 @@ const calculate = () => {
     display.value = '⛔ ERROR';
   }
 };
+
+numberBtns.forEach((button) => {
+  button.addEventListener('click', () => {
+    appendToDisplay(button.textContent);
+  });
+});
+
+operatorBtns.forEach((button) => {
+  button.addEventListener('click', () => {
+    appendToDisplay(button.textContent);
+  });
+});
+
+equalsBtn.addEventListener('click', calculate);
+
+clearBtn.addEventListener('click', clearDisplay);
