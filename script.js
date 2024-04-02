@@ -1,21 +1,19 @@
 'use strict';
 
-let display;
+const display = document.querySelector('#display');
 
 const appendToDisplay = (str) => {
-  document.getElementById('display').value += str;
+  display.value += str;
 };
 
 const clearDisplay = () => {
-  document.querySelector('#display').value = '';
+  display.value = '';
 };
 
 const calculate = () => {
   try {
-    document.querySelector('#display').value = eval(
-      document.querySelector('#display').value
-    );
+    display.value = eval(display.value);
   } catch (error) {
-    document.querySelector('#display').value = '⛔ ERROR';
+    display.value = '⛔ ERROR';
   }
 };
