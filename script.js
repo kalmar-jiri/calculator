@@ -12,7 +12,11 @@ const clearDisplay = () => {
 
 const calculate = () => {
   try {
-    display.value = eval(display.value);
+    if (eval(display.value) === Infinity) {
+      display.value = '∞';
+    } else {
+      display.value = eval(display.value);
+    }
   } catch (error) {
     display.value = '⛔ ERROR';
   }
